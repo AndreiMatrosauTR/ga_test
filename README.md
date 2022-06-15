@@ -1,1 +1,1 @@
-https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_NAME>/badge.svg
+https://github.com/AndreyMatrosauTR/ga_test/workflows/step_2_run_test_java/badge.svg
