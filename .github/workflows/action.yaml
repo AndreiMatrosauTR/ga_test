@@ -47,13 +47,13 @@ jobs:
         if: success() || failure()
         with:
           name: test-results
-          path: report/jest-junit.xml
+          path: ga_test/report/jest-junit.xml
 
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
           name: Maven Tests
-          path: 'report/*.xml'
+          path: 'ga_test/report/*.xml'
           reporter: jest-junit
           # fail-on-error: true
