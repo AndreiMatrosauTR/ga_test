@@ -36,24 +36,24 @@ jobs:
       - name: Build with maven
         run: mvn --batch-mode --update-snapshots -DskipTests package
 
-      - name: Test
-        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
-
-      # - name: Create directory
-      #   run: mkdir staging && cp target/*.jar staging
-
-      - name: Upload
-        uses: actions/upload-artifact@v3
-        if: success() || failure()
-        with:
-          name: test-results
-          path: jest-junit.xml
-
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Maven Tests
-          path: '.xml'
-          reporter: jest-junit
-          fail-on-error: true
+      # - name: Test
+      #   run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+      #
+      # # - name: Create directory
+      # #   run: mkdir staging && cp target/*.jar staging
+      #
+      # - name: Upload
+      #   uses: actions/upload-artifact@v3
+      #   if: success() || failure()
+      #   with:
+      #     name: test-results
+      #     path: jest-junit.xml
+      #
+      # - name: Test Report
+      #   uses: dorny/test-reporter@v1
+      #   if: success() || failure()
+      #   with:
+      #     name: Maven Tests
+      #     path: '.xml'
+      #     reporter: jest-junit
+      #     fail-on-error: true
