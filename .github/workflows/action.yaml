@@ -15,9 +15,6 @@ jobs:
     #       - ga_test
 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ga_test
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
