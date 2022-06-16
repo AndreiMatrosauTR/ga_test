@@ -56,4 +56,4 @@ jobs:
           name: Maven Tests
           path: 'ga_test/report/*.xml'
           reporter: jest-junit
-          # fail-on-error: true
+          fail-on-error: true
