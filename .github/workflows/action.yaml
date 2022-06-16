@@ -6,22 +6,44 @@ on:
     branches: [ integration ]
 jobs:
   test_build_job:
+    strategy:
+      fail-fast: false
+      matrix:
+        targetRepo:
+          - ga_test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+        with:
+          repository: tr/${{ matrix.targetRepo }}
+          token: ${{ secrets.TOKEN }}
+          fetch-depth: 0
+
       - name: Set up JDK 14
         uses: actions/setup-java@v3
         with:
           java-version: '14'
           distribution: 'adopt'
           cache: maven
+
       - name: Build with maven
         run: mvn --batch-mode --update-snapshots package
+
       - name: Create directory
         run: mkdir staging && cp target/*.jar staging
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
           name: package
           path: staging
+
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Maven Tests
+          path: reports/jest-*.xml    # Path to test results
+          reporter: jest-junit
+          fail-on-error: true
