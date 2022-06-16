@@ -50,6 +50,6 @@ jobs:
         if: success() || failure()
         with:
           name: Maven Tests
-          path: reports/jest-*.xml
+          path: ga_test/reports/jest-*.xml
           reporter: jest-junit
           fail-on-error: true
