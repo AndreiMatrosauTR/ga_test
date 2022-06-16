@@ -31,7 +31,7 @@ jobs:
           cache: maven
 
       - name: Build with maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode --update-snapshots -DskipTests package
 
       - name: Test
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
