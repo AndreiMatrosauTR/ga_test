@@ -46,6 +46,14 @@ jobs:
     #   - name: Test
     #     run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
     #
+    
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        if: success() || failure()
+        with:
+          name: test-results
+          path: jest-junit.xml
+
       - name: Test report
         uses: dorny/test-reporter@v1
         with:
@@ -53,10 +61,3 @@ jobs:
           name: JEST Tests
           path: '*.xml'
           reporter: jest-junit
-    #
-    #   - name: Upload
-    #     uses: actions/upload-artifact@v3
-    #     if: success() || failure()
-    #     with:
-    #       name: test-results
-    #       path: jest-junit.xml
