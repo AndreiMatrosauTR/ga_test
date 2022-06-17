@@ -8,11 +8,6 @@ on:
 
 jobs:
   test_build_job:
-    # strategy:
-    #   fail-fast: false
-    #   matrix:
-    #     targetRepo:
-    #       - ga_test
 
     runs-on: ubuntu-latest
     steps:
@@ -48,20 +43,3 @@ jobs:
         with:
           name: test-results
           path: jest-junit.xml
-
-name: 'test_report'
-on:
-  workflow_run:
-    workflows: ['step_2_run_test_java']
-    types:
-      - completed
-jobs:
-  report:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: dorny/test-reporter@v1
-      with:
-        artifact: test-results
-        name: JEST Tests
-        path: '*.xml'
-        reporter: jest-junit
