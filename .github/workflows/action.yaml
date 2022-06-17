@@ -27,14 +27,21 @@ jobs:
       # env:
       #     TR1_ACCOUNT_NAME: ${{ secrets.TR1_USER }}
       #     TR1_API_TOKEN: ${{ secrets.TR1_TOKEN }}
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.0
-      if: success() || failure()
-      with:
-        # Artifact name
-        name: test-results
-        # A file, directory or wildcard pattern that describes what to upload
-        path: jest-junit.xml
+    - name: Test report
+      uses: dorny/test-reporter@v1
+        with:
+          artifact: test-results
+          name: JEST Tests
+          path: '*.xml'
+          reporter: jest-junit
+    # - name: Upload a Build Artifact
+    #   uses: actions/upload-artifact@v3.1.0
+    #   if: success() || failure()
+    #   with:
+    #     # Artifact name
+    #     name: test-results
+    #     # A file, directory or wildcard pattern that describes what to upload
+    #     path: jest-junit.xml
 
     #
     #   - name: Build with maven
@@ -43,12 +50,3 @@ jobs:
     #   - name: Test
     #     run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
     #
-
-      #
-      # - name: Test report
-      #   uses: dorny/test-reporter@v1
-      #   with:
-      #     artifact: test-results
-      #     name: JEST Tests
-      #     path: '*.xml'
-      #     reporter: jest-junit
