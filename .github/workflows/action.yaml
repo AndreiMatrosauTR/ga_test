@@ -29,11 +29,11 @@ jobs:
       #     TR1_API_TOKEN: ${{ secrets.TR1_TOKEN }}
     - name: Test report
       uses: dorny/test-reporter@v1
-        with:
-          artifact: test-results
-          name: JEST Tests
-          path: '*.xml'
-          reporter: jest-junit
+      with:
+        artifact: test-results
+        name: JEST Tests
+        path: '*.xml'
+        reporter: jest-junit
     # - name: Upload a Build Artifact
     #   uses: actions/upload-artifact@v3.1.0
     #   if: success() || failure()
