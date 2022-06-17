@@ -2,6 +2,10 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
 
+   <groupId>tr.ga</groupId>
+   <artifactId>test</artifactId>
+   <version>1.0.0</version>
+
   <repositories>
     <repository>
       <id>central</id>
