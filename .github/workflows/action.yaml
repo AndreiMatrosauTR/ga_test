@@ -1,4 +1,4 @@
-name: step_2_run_test_java
+name: 'step_2_run_test_java'
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
           name: test-results
           path: jest-junit.xml
 
-name: 'Test Report'
+name: 'test_report'
 on:
   workflow_run:
     workflows: ['step_2_run_test_java']
