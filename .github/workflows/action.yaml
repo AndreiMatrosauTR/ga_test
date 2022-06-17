@@ -39,9 +39,9 @@ jobs:
       - name: Build with maven
         run: mvn --batch-mode --update-snapshots -DskipTests package
 
-      # - name: Test
-      #   run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
-      #
+      - name: Test
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+      
       # # - name: Create directory
       # #   run: mkdir staging && cp target/*.jar staging
       #
