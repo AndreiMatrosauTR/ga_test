@@ -35,14 +35,17 @@ jobs:
         run: mvn --batch-mode --update-snapshots -DskipTests package
 
       - name: Test
-        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+        run: mvn --batch-mode test
 
-      - name: Upload
-        uses: actions/upload-artifact@v3
-        if: success() || failure()
-        with:
-          name: test-results
-          path: jest-junit.xml
+      # - name: Test
+      #   run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+
+      # - name: Upload
+      #   uses: actions/upload-artifact@v3
+      #   if: success() || failure()
+      #   with:
+      #     name: test-results
+      #     path: jest-junit.xml
 
       - name: List files in the repository
         run: |
@@ -55,4 +58,3 @@ jobs:
           name: JEST Tests
           path: '*.xml'
           reporter: jest-junit
-          
