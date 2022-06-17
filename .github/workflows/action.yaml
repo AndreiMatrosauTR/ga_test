@@ -47,7 +47,8 @@ jobs:
         if: success() || failure()
         with:
           name: test-results
-          path: jest-junit.xml
+          path: reports/jest-junit.xml
+          reporter: jest-junit
 
       # - name: Test Report
       #   uses: dorny/test-reporter@v1
