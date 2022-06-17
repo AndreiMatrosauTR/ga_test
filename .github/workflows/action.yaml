@@ -44,6 +44,10 @@ jobs:
           name: test-results
           path: jest-junit.xml
 
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
       - name: Test report
         uses: dorny/test-reporter@v1
         with:
