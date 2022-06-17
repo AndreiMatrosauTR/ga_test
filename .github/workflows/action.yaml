@@ -30,11 +30,11 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
       if: success() || failure()
-        with:
-          # Artifact name
-          name: test-results
-          # A file, directory or wildcard pattern that describes what to upload
-          path: jest-junit.xml
+      with:
+        # Artifact name
+        name: test-results
+        # A file, directory or wildcard pattern that describes what to upload
+        path: jest-junit.xml
 
     #
     #   - name: Build with maven
@@ -44,12 +44,6 @@ jobs:
     #     run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
     #
 
-      # - name: Upload
-      #   uses: actions/upload-artifact@v3
-      #   if: success() || failure()
-      #   with:
-      #     name: test-results
-      #     path: jest-junit.xml
       #
       # - name: Test report
       #   uses: dorny/test-reporter@v1
