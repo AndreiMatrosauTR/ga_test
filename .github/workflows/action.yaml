@@ -49,19 +49,19 @@ jobs:
     # ---------
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
-        run: |
-          .grdlew test
+      run: |
+        .grdlew test
     - name: Run JS Tests
       if: ${{steps:filter.outputs.js == 'js'}}
-        run: |
-          npm ci
+      run: |
+        npm ci
     # Test only
-          npm run build --if-present
+        npm run build --if-present
     # ---------
-          npm test
+        npm test
     - name: Publishing Test Report
-        if: success() || failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: Test-report
-          path: biuld/reports/tests/test/*
+      if: success() || failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: Test-report
+        path: biuld/reports/tests/test/*
