@@ -32,7 +32,7 @@ jobs:
     # The filter can be used to decide run tests for Java or JS.
     - name: Use filter to run test
       uses: dorny/paths-filter@v2.2.1
-        id: filter
+      id: filter
         with:
           filters: |
             jar:
