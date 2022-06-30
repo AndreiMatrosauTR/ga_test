@@ -33,12 +33,12 @@ jobs:
     - name: Use filter to run test
       uses: dorny/paths-filter@v2.2.1
       id: filter
-        with:
-          filters: |
-            jar:
-              - '**/*.jar'
-            js:
-              - '**/*.js'
+      with:
+        filters: |
+          jar:
+            - '**/*.jar'
+          js:
+            - '**/*.js'
     # Test only
     - name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
