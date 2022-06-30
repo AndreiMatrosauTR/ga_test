@@ -50,7 +50,7 @@ jobs:
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
       run: |
-        .grdlew test
+        ./grdlew test
     - name: Run JS Tests
       if: ${{steps:filter.outputs.js == 'js'}}
       run: |
