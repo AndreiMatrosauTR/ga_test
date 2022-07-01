@@ -48,7 +48,6 @@ jobs:
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       with:
         arguments: build
-    # ---------
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
       uses: gradle/gradle-build-action@v2
@@ -58,9 +57,7 @@ jobs:
       if: ${{steps:filter.outputs.js == 'js'}}
       run: |
         npm ci
-    # Test only
         npm run build --if-present
-    # ---------
         npm test
     - name: Publishing Test Report
       if: success() || failure()
