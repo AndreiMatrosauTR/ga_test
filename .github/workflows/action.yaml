@@ -31,6 +31,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: npm
+        cache-dependency-path: "./blog/package-lock.json"
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
     # Checks to see if any files in the PR match one of the listed file types.
@@ -59,6 +60,7 @@ jobs:
       if: steps.filter.outputs.js == 'true'
       run: |
         npm ci
+        npm test
         npm run build --if-present
         npm test
     - name: Publishing Test Report
