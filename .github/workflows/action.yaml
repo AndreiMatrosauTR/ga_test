@@ -39,7 +39,7 @@ jobs:
         FORCE_COLOR: 0
       with:
         node-version: ${{ matrix.node-version }}
-        # cache: npm
+        cache: yarn
         # cache-dependency-path: '**/package-lock.json'
     # - name: Setup Gradle
     #   uses: gradle/gradle-build-action@v2
