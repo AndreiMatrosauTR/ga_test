@@ -14,6 +14,7 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
         java-version: [17]
       max-parallel: 4
+      fail-fast: false
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v3
