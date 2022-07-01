@@ -51,8 +51,11 @@ jobs:
     # ---------
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
-      run: |
-        ./gradlew test
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: test
+      # run: |
+      #   ./gradlew test
     - name: Run JS Tests
       if: ${{steps:filter.outputs.js == 'js'}}
       run: |
