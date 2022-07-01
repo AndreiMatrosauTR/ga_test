@@ -51,7 +51,7 @@ jobs:
             - '**/*.jar'
           js:
             - '**/*.js'
-    - name: Make gradlew executable
+    - name: Make gradlew and gradle executable
       run: |
         chmod +x ./gradlew
         chmod +x gradle
