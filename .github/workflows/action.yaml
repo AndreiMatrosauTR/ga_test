@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        java-version: [11]
+        java-version: [17]
       max-parallel: 4
       fail-fast: false
     steps:
@@ -53,8 +53,10 @@ jobs:
             - '**/*.js'
     - name: Make gradlew executable
       run: chmod +x ./gradlew
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@v3
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+      uses: gradle/gradle-build-action@v3
       with:
         arguments: build
     - name: Run Gradle Tests
