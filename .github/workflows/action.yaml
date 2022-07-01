@@ -62,10 +62,13 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
+    - name: NPM install
+      run: |
+       npm install
     - name: Run JS Tests
       if: steps.filter.outputs.js == 'true'
       run: |
-        npm install
+        npm ci
         npm test
     - name: Publishing Test Report
       if: success() || failure()
