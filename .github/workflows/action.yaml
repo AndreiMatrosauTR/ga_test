@@ -31,7 +31,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: npm
-        cache-dependency-path: '**/package-lock.json'
+        # cache-dependency-path: '**/package-lock.json'
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
     # Checks to see if any files in the PR match one of the listed file types.
