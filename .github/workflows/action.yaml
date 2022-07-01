@@ -57,7 +57,7 @@ jobs:
     - name: Make gradlew and gradle executable
       run: |
         chmod +x ./gradlew
-        chmod +x /home/runner/.gradle/wrapper/dists/gradle-2.8-bin/4rsda7i357a5ogdj89yq8dntm/gradle-2.8/bin/gradle
+        chmod +x ./gradle
     - name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@v1
     - name: Build with Gradle
