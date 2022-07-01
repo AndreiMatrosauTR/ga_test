@@ -1,13 +1,13 @@
 {
   "name": "create-simple-app.js",
   "version": "1.0.0",
-  "description": "Github Action example with Javascript test",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "jest": {
      "verbose": true
   },
   "scripts": {
-    "test": "jest --config ./jest-config.js"
+    "test": "jest"
   },
   "license": "MIT"
 }
