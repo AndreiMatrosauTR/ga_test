@@ -72,11 +72,11 @@ jobs:
     - name: Run JS Tests
       if: steps.filter.outputs.js == 'true'
       run: |
-        npm install
+    #    npm install
         npm ci
         npm test
-        npm run build --if-present
-        npm test
+        # npm run build --if-present
+        # npm test
     - name: Publishing Test Report
       if: success() || failure()
       uses: actions/upload-artifact@v3
