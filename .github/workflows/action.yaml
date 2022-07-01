@@ -19,6 +19,7 @@ jobs:
       matrix:
         node-version: [16.x]
         java-version: [17]
+        gradle-version: [7.3]
       max-parallel: 4
       fail-fast: false
     steps:
@@ -41,7 +42,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        gradle-version: 6.5
+        gradle-version: ${{ matrix.gradle-version }}
     # Checks to see if any files in the PR match one of the listed file types.
     # The filter can be used to decide run tests for Java or JS.
     - name: Use filter to run test
