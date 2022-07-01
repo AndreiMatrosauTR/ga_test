@@ -68,4 +68,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Test-report
-        path: biuld/reports/tests/test/*
+        path: build/reports/tests/test/*
