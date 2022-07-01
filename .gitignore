@@ -61,3 +61,4 @@ dependency-reduced-pom.xml
 *.idea
 
 !gradle/wrapper/gradle-wrapper.jar
+!yarn.lock
