@@ -66,7 +66,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
-    - name: Install dependencies
+    - name: Install Dependencies
       run: npm install
     - name: Run JS Tests
       if: steps.filter.outputs.js == 'true'
