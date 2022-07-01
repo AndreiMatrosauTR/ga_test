@@ -72,6 +72,7 @@ jobs:
     - name: Run JS Tests
       if: steps.filter.outputs.js == 'true'
       run: |
+        npm install
         npm ci
         npm test
         npm run build --if-present
