@@ -1,6 +1,8 @@
 name: Java and JS test
 
 on:
+  push:
+    branches: [ integration ]
   pull_request:
     branches: [ integration ]
 
