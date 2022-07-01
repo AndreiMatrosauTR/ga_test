@@ -55,7 +55,7 @@ jobs:
       with:
         arguments: test
     - name: Run JS Tests
-      if: steps:filter.outputs.js == 'true'
+      if: steps.filter.outputs.js == 'true'
       run: |
         npm ci
         npm run build --if-present
