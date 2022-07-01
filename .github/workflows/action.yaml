@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        java-version: [17]
+        java-version: [11]
       max-parallel: 4
       fail-fast: false
     steps:
