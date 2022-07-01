@@ -39,10 +39,10 @@ jobs:
         FORCE_COLOR: 0
       with:
         node-version: ${{ matrix.node-version }}
-        cache: yarn
-        cache-dependency-path: '**/yarn.lock'
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
+        # cache: npm
+        # cache-dependency-path: '**/package-lock.json'
+    # - name: Install dependencies
+    #   run: yarn install --frozen-lockfile
 
     # - name: Setup Gradle
     #   uses: gradle/gradle-build-action@v2
