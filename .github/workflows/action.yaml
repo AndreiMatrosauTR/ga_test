@@ -30,37 +30,37 @@ jobs:
         cache: npm
     # - name: Setup Gradle
     #   uses: gradle/gradle-build-action@v2
-    # Checks to see if any files in the PR match one of the listed file types.
-    # The filter can be used to decide run tests for Java or JS.
-    - name: Use filter to run test
-      uses: dorny/paths-filter@v2.2.1
-      id: filter
-      with:
-        filters: |
-          jar:
-            - '**/*.jar'
-          js:
-            - '**/*.js'
-    - name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-      with:
-        arguments: build
-    - name: Run Gradle Tests
-      if: steps.filter.outputs.jar == 'true'
-      uses: gradle/gradle-build-action@v2
-      with:
-        arguments: test
-    - name: Run JS Tests
-      if: ${{steps:filter.outputs.js == 'js'}}
-      run: |
-        npm ci
-        npm run build --if-present
-        npm test
-    - name: Publishing Test Report
-      if: success() || failure()
-      uses: actions/upload-artifact@v3
-      with:
-        name: Test-report
-        path: biuld/reports/tests/test/*
+    # # Checks to see if any files in the PR match one of the listed file types.
+    # # The filter can be used to decide run tests for Java or JS.
+    # - name: Use filter to run test
+    #   uses: dorny/paths-filter@v2.2.1
+    #   id: filter
+    #   with:
+    #     filters: |
+    #       jar:
+    #         - '**/*.jar'
+    #       js:
+    #         - '**/*.js'
+    # - name: Validate Gradle wrapper
+    #   uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+    # - name: Build with Gradle
+    #   uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    #   with:
+    #     arguments: build
+    # - name: Run Gradle Tests
+    #   if: steps.filter.outputs.jar == 'true'
+    #   uses: gradle/gradle-build-action@v2
+    #   with:
+    #     arguments: test
+    # - name: Run JS Tests
+    #   if: ${{steps:filter.outputs.js == 'js'}}
+    #   run: |
+    #     npm ci
+    #     npm run build --if-present
+    #     npm test
+    # - name: Publishing Test Report
+    #   if: success() || failure()
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: Test-report
+    #     path: biuld/reports/tests/test/*
