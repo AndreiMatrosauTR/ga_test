@@ -52,7 +52,9 @@ jobs:
           js:
             - '**/*.js'
     - name: Make gradlew executable
-      run: chmod +x ./gradlew
+      run: |
+        chmod +x ./gradlew
+        chmod +x gradlew
     - name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@v1
     - name: Build with Gradle
