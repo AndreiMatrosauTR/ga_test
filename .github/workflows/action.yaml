@@ -25,5 +25,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Install yarn
         run: yarn
+      - name: yarn version
+        run: yarn --version
       - name: Yarn test
         run: yarn test --coverage --verbose --maxWorkers=2
