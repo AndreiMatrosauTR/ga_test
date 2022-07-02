@@ -28,4 +28,4 @@ jobs:
       - name: yarn version
         run: yarn --version
       - name: Yarn test
-        run: yarn test --coverage --verbose --maxWorkers=2
+        run: yarn test --maxWorkers=2
