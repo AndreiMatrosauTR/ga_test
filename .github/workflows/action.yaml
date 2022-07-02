@@ -26,4 +26,4 @@ jobs:
       - name: Install yarn
         run: yarn
       - name: Yarn test
-        run: yarn test:ci --coverage --verbose --maxWorkers=2
+        run: yarn test --coverage --verbose --maxWorkers=2
