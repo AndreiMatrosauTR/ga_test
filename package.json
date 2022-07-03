@@ -1,13 +1,15 @@
 {
-  "name": "create-simple-app.js",
-  "jest": {
-    "verbose": true
-  },
+  "name": "hello-jest-github-actions",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest" // UPDATE HERE
   },
-  "license": "MIT"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.3.1"
+  }
 }
