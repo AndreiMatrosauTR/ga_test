@@ -47,6 +47,9 @@ jobs:
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: |
         yarn install --frozen-lockfile
+    - name: Install yarn
+      run: |
+        yarn
         yarn --version
     - name: Use filter to run test
       uses: dorny/paths-filter@v2.2.1
@@ -73,11 +76,8 @@ jobs:
       with:
         arguments: test
 
-    - name: Install yarn
-      run: |
-        yarn
-        yarn --version
-        yarn test --maxWorkers=2
+    - name: Test yarn
+      run: yarn test --maxWorkers=2
     - name: Publishing Test Report
       if: success() || failure()
       uses: actions/upload-artifact@v3
