@@ -70,12 +70,16 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
+
     - name: Install yarn
-      run: yarn
-    - name: yarn version
-      run: yarn --version
-    - name: Yarn test
-      run: yarn test --maxWorkers=2
+      run: |
+        yarn
+        yarn --version
+        yarn test --maxWorkers=2
+    # - name: yarn version
+    #   run: yarn --version
+    # - name: Yarn test
+    #   run: yarn test --maxWorkers=2
     - name: Publishing Test Report
       if: success() || failure()
       uses: actions/upload-artifact@v3
