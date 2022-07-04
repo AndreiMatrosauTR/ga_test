@@ -47,7 +47,7 @@ jobs:
     - name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@v1
 
-    - name: Build with Gradle
+    - name: Build with Gradle ${{ matrix.gradle-version }}
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
@@ -86,6 +86,7 @@ jobs:
     #         - '**/*.jar'
     #       js:
     #         - '**/*.js'
+
     - name: Run Gradle Tests
       # if: steps.filter.outputs.jar == 'true'
       uses: gradle/gradle-build-action@v2
