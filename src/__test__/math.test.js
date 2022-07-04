@@ -1,4 +1,4 @@
-const { add, subtract, multiply } = require("../math");
+const { add, subtract, multiply } = require("../math.js");
 
 describe("simple arithmetic", () => {
   describe("addition", () => {
@@ -18,4 +18,4 @@ describe("simple arithmetic", () => {
       expect(multiply(2, 3)).toEqual(6);
     });
   });
-}); 
+});
