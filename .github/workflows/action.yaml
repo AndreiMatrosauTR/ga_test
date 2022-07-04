@@ -30,42 +30,58 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+
     - name: Setup JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v3
       with:
         java-version: ${{ matrix.java-version }}
         distribution: adopt
         cache: gradle
+
+    - name: Setup gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: 7.1
+
+    - name: Make gradlew and gradle executable
+      run: |
+        chmod +x ./gradlew
+        chmod +x ./gradle
+
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@v1
+
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       env:
         FORCE_COLOR: 0
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: Setup yarn cache
       uses: actions/cache@v2
       id: yarn-cache
       with:
         path: node_modules
         key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: |
         yarn install --frozen-lockfile
+
     - name: Install yarn
       run: |
         yarn
         yarn --version
-    - name: Make gradlew and gradle executable
-      run: |
-        chmod +x ./gradlew
-        chmod +x ./gradle
-    - name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@v1
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        arguments: build
+
+
+
     - name: Use filter to run test
       uses: dorny/paths-filter@v2.2.1
       id: filter
