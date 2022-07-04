@@ -23,6 +23,7 @@ jobs:
       matrix:
         node-version: [16.x]
         java-version: [8]
+        gradle-version: [2.8]
       max-parallel: 4
       fail-fast: false
     steps:
@@ -50,7 +51,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
-        gradle-version: 2.8
+        gradle-version: ${{ matrix.gradle-version }}
 
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -75,8 +76,6 @@ jobs:
       run: |
         yarn
         yarn --version
-
-
 
     # - name: Use filter to run test
     #   uses: dorny/paths-filter@v2.2.1
