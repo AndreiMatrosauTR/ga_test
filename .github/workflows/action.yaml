@@ -1,6 +1,7 @@
 name: Java and JS test
 
 on:
+  workflow_dispatch:
   push:
     branches: [ integration ]
   pull_request:
@@ -76,7 +77,7 @@ jobs:
       with:
         arguments: test
     - name: Run yarn test
-      if: steps.filter.output.js == 'true' 
+      if: steps.filter.output.js == 'true'
       run: yarn test --maxWorkers=2
     - name: Publishing Test Report
       if: success() || failure()
