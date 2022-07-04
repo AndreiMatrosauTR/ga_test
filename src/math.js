@@ -7,7 +7,6 @@
  */
 const add = (x, y) => x + y;
 
-
 /**
  * Simple subtraction.
  *
@@ -17,7 +16,6 @@ const add = (x, y) => x + y;
  */
 const subtract = (x, y) => x - y;
 
-
 /**
  * Simple multiplication.
  *
@@ -26,7 +24,6 @@ const subtract = (x, y) => x - y;
  * @returns Multiplication of both arguments.
  */
 const multiply = (x, y) => x * y;
-
 
 module.exports = {
   add,
