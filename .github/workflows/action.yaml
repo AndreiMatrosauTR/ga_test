@@ -12,10 +12,8 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
       - reopened
       - ready_for_review
-      - converted_to_draft
     branches: [ integration ]
 jobs:
   Java_and_JS_test:
