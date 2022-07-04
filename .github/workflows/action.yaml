@@ -3,10 +3,11 @@ name: Java and JS test
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: version
-        default: 1.0.0
-        required: true
+      test:
+        description: Rerun test
+        default: false
+        type: boolean
+        required: false
   push:
     branches: [ integration ]
   pull_request:
