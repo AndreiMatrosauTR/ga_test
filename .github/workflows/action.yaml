@@ -86,15 +86,15 @@ jobs:
             - '**/*.jar'
           js:
             - '**/*.js'
-
+    - name: Run yarn test
+      if: steps.filter.output.jar == 'true'
+      run: yarn test --maxWorkers=2
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
-    - name: Run yarn test
-      if: steps.filter.output.jar == 'true'
-      run: yarn test --maxWorkers=2
+
     - name: Publishing Test Report
       if: success() || failure()
       uses: actions/upload-artifact@v3
