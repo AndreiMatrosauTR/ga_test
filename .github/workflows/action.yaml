@@ -38,10 +38,10 @@ jobs:
         distribution: adopt
         # cache: gradle
 
-    - name: Setup gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        gradle-version: 7.1
+    # - name: Setup gradle
+    #   uses: gradle/gradle-build-action@v2
+    #   with:
+    #     gradle-version: 7.1
 
     - name: Make gradlew and gradle executable
       run: |
@@ -55,6 +55,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
+        gradle-version: 7.1
 
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
