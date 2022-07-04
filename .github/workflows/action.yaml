@@ -55,15 +55,6 @@ jobs:
       run: |
         yarn
         yarn --version
-    - name: Use filter to run test
-      uses: dorny/paths-filter@v2.2.1
-      id: filter
-      with:
-        filters: |
-          jar:
-            - '**/*.jar'
-          js:
-            - '**/*.js'
     - name: Make gradlew and gradle executable
       run: |
         chmod +x ./gradlew
@@ -74,6 +65,15 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
+    - name: Use filter to run test
+      uses: dorny/paths-filter@v2.2.1
+      id: filter
+      with:
+        filters: |
+          jar:
+            - '**/*.jar'
+          js:
+            - '**/*.js'
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
       uses: gradle/gradle-build-action@v2
