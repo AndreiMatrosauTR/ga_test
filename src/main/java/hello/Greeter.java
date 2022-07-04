@@ -1,25 +1,10 @@
 package hello;
-
-
-
 public class Greeter {
-
-
-
   private String name = "";
-
-
-
-  public String getName() 
-
+  public String getName()
   {
-
     return name;
-
   }
-
-
-
   public void setName(String name) 
 
   {
@@ -30,11 +15,11 @@ public class Greeter {
 
 
 
-  public String sayHello() 
+  public String sayHello()
 
   {
 
-  	if (name == "") 
+  	if (name == "")
 
     {
 
@@ -42,7 +27,7 @@ public class Greeter {
 
     }
 
-    else 
+    else
 
     {
 
