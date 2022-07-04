@@ -93,7 +93,7 @@ jobs:
       with:
         arguments: test
     - name: Run yarn test
-      if: steps.filter.output.js == 'true'
+      if: steps.filter.output.jar == 'true'
       run: yarn test --maxWorkers=2
     - name: Publishing Test Report
       if: success() || failure()
