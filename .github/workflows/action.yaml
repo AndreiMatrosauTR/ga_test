@@ -87,7 +87,7 @@ jobs:
           js:
             - '**/*.js'
     - name: Run yarn test
-      if: steps.filter.output.jar == 'true'
+      if: steps.filter.output.js == 'true'
       run: yarn test --maxWorkers=2
     - name: Run Gradle Tests
       if: steps.filter.outputs.jar == 'true'
