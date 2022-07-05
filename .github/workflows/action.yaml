@@ -22,8 +22,8 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        java-version: [8]
-        gradle-version: [2.8]
+        java-version: [16]
+        gradle-version: [7.1]
       max-parallel: 4
       fail-fast: false
     steps:
