@@ -83,11 +83,23 @@ jobs:
     #         - '**/*.jar'
     #       js:
     #         - '**/*.js'
+
+    # - uses: dorny/paths-filter@v2
+    #   id: filter
+    #   with:
+    #     filters: |
+    #       app1:
+    #         - 'src/app1/**'
+    #       app2:
+    #         - 'src/app2/**'
+
     - name: Run yarn test
       # if: steps.filter.output.js == 'true'
+      # if: steps.filter.output.app1 == 'true'
       run: yarn test --maxWorkers=2
     - name: Run Gradle Tests
       # if: steps.filter.outputs.jar == 'true'
+      # if: steps.filter.output.app2 == 'true'
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
