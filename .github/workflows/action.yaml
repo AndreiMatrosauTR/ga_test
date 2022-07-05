@@ -90,7 +90,7 @@ jobs:
       # if: steps.filter.output.js == 'true'
       run: yarn test --maxWorkers=2
     - name: Run Gradle Tests
-      #чфьзду ща вщсгьутештп if: steps.filter.outputs.jar == 'true'
+      # if: steps.filter.outputs.jar == 'true'
       uses: gradle/gradle-build-action@v2
       with:
         arguments: test
